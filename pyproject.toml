@@ -7,18 +7,18 @@ authors = [
 ]
 requires-python = ">=3.11,<3.13"
 dependencies = [
-    "requests (>=2.34.2,<3.0.0)",
-     "uagents (>=0.17.1,<0.18.0)",
-    "requests (>=2.31.0,<3.0.0)",
-    "langchain (>=0.3.7,<0.4.0)",
-    "langchain-deepseek (>=1.0.1,<2.0.0)",
-    "tiktoken (>=0.8.0,<0.9.0)",
-    "cohere (>=5.11.4,<6.0.0)",
-    "faiss-cpu (>=1.9.0.post1,<2.0.0)",
-    "validators (>=0.34.0,<0.35.0)",
-    "uagents-ai-engine (>=0.6.0,<0.7.0)",
-    "unstructured (>=0.16.5,<0.17.0)",
-    "langchain-community (>=0.3.7,<0.4.0)"
+    "uagents>=0.17.1",
+    "requests>=2.31.0",
+    "langchain>=0.3.7",
+    "openai>=1.54.5",
+    "langchain-openai>=0.2.9",
+    "tiktoken>=0.8.0",
+    "cohere>=5.11.4",
+    "faiss-cpu>=1.9.0.post1",
+    "validators>=0.34.0",
+    "uagents-ai-engine>=0.6.0",
+    "unstructured>=0.16.5",
+    "langchain-community>=0.3.7"
 ]
 
 
