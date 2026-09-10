@@ -1,10 +1,10 @@
 import traceback
-from uagents import Agent, Context, Protocol
+from uagents import Agent, Context, Protocol, Model
 import validators
-from messages.requests import RagRequest
+from ..messages.requests import RagRequest
 import os
 from langchain_openai import ChatOpenAI
-from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate #this is the prompt
 from langchain_community.document_loaders import UnstructuredURLLoader
 import requests
 from bs4 import BeautifulSoup

@@ -7,7 +7,6 @@ authors = [
 ]
 requires-python = ">=3.11,<3.13"
 dependencies = [
-    "uagents>=0.17.1",
     "requests>=2.31.0",
     "langchain>=0.3.7",
     "openai>=1.54.5",
@@ -16,9 +15,12 @@ dependencies = [
     "cohere>=5.11.4",
     "faiss-cpu>=1.9.0.post1",
     "validators>=0.34.0",
-    "uagents-ai-engine>=0.6.0",
     "unstructured>=0.16.5",
-    "langchain-community>=0.3.7"
+    "langchain-community>=0.3.7",
+    "ai-engine (>=0.0.1,<0.0.2)",
+    "uagents-ai-engine (>=0.10.0,<0.11.0)",
+    "langchain-cohere (>=0.6.0,<0.7.0)",
+    "uagents-core (>=0.4.9,<0.5.0)"
 ]
 
 [tool.poetry]
