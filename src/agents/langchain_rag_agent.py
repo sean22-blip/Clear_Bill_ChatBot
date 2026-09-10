@@ -1,7 +1,7 @@
 import traceback
 from uagents import Agent, Context, Protocol
 import validators
-from messges.requests import RagRequest
+from messages.requests import RagRequest
 import os
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
@@ -29,7 +29,7 @@ agent = Agent(
 )
  
 fund_agent_if_low(agent.wallet.address())
- 
+ # Protocol uses a predefined prompt template to create question and context for the language model
 docs_bot_protocol = Protocol("DocsBot")
  
 PROMPT_TEMPLATE = """
@@ -42,7 +42,10 @@ Answer the question based only on the following context:
 Answer the question based on the above context: {question}
 """
  
- 
+# deep scraping is when a website contain links to other pages
+#create_retriever is responsible for fetching and parsing web pages 
+# it then split and using LangChain "UnstructuredURLLoader", indexed with "FAISS", and compresses with "Cohere"
+# creating a retriever which can extract revelance information
 def create_retriever(
         ctx: Context, url: str, deep_read: bool
 ) -> ContextualCompressionRetriever:
@@ -90,7 +93,10 @@ def create_retriever(
         ctx.logger.error(f"Error happened: {exc}")
         traceback.format_exception(exc)
  
- 
+#triggered when the agent recieves a message matching the "RagRequest" message data model
+# validates the input URL and creates a retriever to fetch relevant documents based on the question
+# the context alongside with the question are then used to create a prompt for the language model "ChatopenAI" which generate the final answer
+# the answered is then send back to the user
 @docs_bot_protocol.on_message(model=RagRequest, replies={UAgentResponse})
 async def answer_question(ctx: Context, sender: str, msg: RagRequest):
     ctx.logger.info(f"Received message from {sender}, session: {ctx.session}")
