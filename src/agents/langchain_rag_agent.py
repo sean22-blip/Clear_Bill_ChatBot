@@ -43,6 +43,7 @@ Answer the question based on the above context: {question}
 """
  
 # deep scraping is when a website contain links to other pages
+
 #create_retriever is responsible for fetching and parsing web pages 
 # it then split and using LangChain "UnstructuredURLLoader", indexed with "FAISS", and compresses with "Cohere"
 # creating a retriever which can extract revelance information
@@ -93,7 +94,7 @@ def create_retriever(
         ctx.logger.error(f"Error happened: {exc}")
         traceback.format_exception(exc)
  
-#triggered when the agent recieves a message matching the "RagRequest" message data model
+# triggered when the agent recieves a message matching the "RagRequest" message data model
 # validates the input URL and creates a retriever to fetch relevant documents based on the question
 # the context alongside with the question are then used to create a prompt for the language model "ChatopenAI" which generate the final answer
 # the answered is then send back to the user
@@ -137,3 +138,6 @@ agent.include(docs_bot_protocol, publish_manifest=True)
  
 if __name__ == "__main__":
     agent.run()	   
+
+# Note
+# To correctly run the code, you need to provide the name, seed, mailbox, LANGCHAIN_RAG_SEED, PROMPT_TEMPLATE and AGENT_MAILBOX_KEY parameters.
